@@ -1,6 +1,6 @@
 <?php
 
-include('homework2.php');
+include('homework3.php');
 
 //var_dump($var);
 
