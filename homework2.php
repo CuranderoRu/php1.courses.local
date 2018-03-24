@@ -140,6 +140,8 @@ $fm = function(int $par){
         return "минут";
     }
     $mod = $par%10;
+    //$mod = $par;
+    //$mod %= 10;
     if($par==1||$mod==1){
         return "минута";
     }elseif(($par>=2&&$par<=4)||($mod>=2&&$mod<=4)){
