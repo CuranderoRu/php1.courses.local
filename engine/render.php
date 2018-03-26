@@ -1,4 +1,4 @@
 <?php
-function displayHello(){
+function displayMainDocument(){
     echo "hello, World!!!";
 }
