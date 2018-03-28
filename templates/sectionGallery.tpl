@@ -1,10 +1,37 @@
-        <div class="nav" id="prev" page_no="{PREVPAGE}">&lt;&lt;</div>
-        <div class="gallery" id="galery_section">
-            <a href="{IMGLINK1}" target="_blank"><img src="{TUMBLINK1}" alt="fox-1"></a>
-            <a href="{IMGLINK2}" target="_blank"><img src="{TUMBLINK2}" alt="fox-2"></a>
-            <a href="{IMGLINK3}" target="_blank"><img src="{TUMBLINK3}" alt="fox-3"></a>
-            <a href="{IMGLINK4}" target="_blank"><img src="{TUMBLINK4}" alt="fox-4"></a>
-            <a href="{IMGLINK5}" target="_blank"><img src="{TUMBLINK5}" alt="fox-5"></a>
-            <a href="{IMGLINK6}" target="_blank"><img src="{TUMBLINK6}" alt="fox-6"></a>
-        </div>
-        <div class="nav" id="next" page_no="{NEXTPAGE}">&gt;&gt;</div>
+{
+    "prev_page": {PREVPAGE},
+    "next_page": {NEXTPAGE},
+    "image_count": {IMAGECOUNT},
+    "pics": {
+        "pic1": {
+            "imglink": "{IMGLINK1}",
+            "thmblink": "{TUMBLINK1}",
+            "alt": "{ALT1}"
+        },
+        "pic2": {
+            "imglink": "{IMGLINK2}",
+            "thmblink": "{TUMBLINK2}",
+            "alt": "{ALT2}"
+        },
+        "pic3": {
+            "imglink": "{IMGLINK3}",
+            "thmblink": "{TUMBLINK3}",
+            "alt": "{ALT3}"
+        },
+        "pic4": {
+            "imglink": "{IMGLINK4}",
+            "thmblink": "{TUMBLINK4}",
+            "alt": "{ALT4}"
+        },
+        "pic5": {
+            "imglink": "{IMGLINK5}",
+            "thmblink": "{TUMBLINK5}",
+            "alt": "{ALT5}"
+        },
+        "pic6": {
+            "imglink": "{IMGLINK6}",
+            "thmblink": "{TUMBLINK6}",
+            "alt": "{ALT6}"
+        }
+    }
+}

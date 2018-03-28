@@ -1,43 +1,44 @@
 <?php
 
+function prepareTemplate($parse, $page_no, $templ_path){
+    $parse->get_tpl($templ_path);
+    $max_pics = 6;
+    $start_img = ($page_no == 0) ? 0 : $page_no * $max_pics - $max_pics;
+    $arFileList = glob(PICS_DIR . "/*.jpg" , GLOB_NOSORT);
+    $arFileList = str_replace (PICS_DIR . '/' , '' , $arFileList);
+    $count = 0;
+    $int_count = 0;
+    foreach ($arFileList as &$value) {
+        if($start_img<=$count && ($start_img+$max_pics)>$count){
+            $int_count++;
+            $parse->set_tpl('{IMGLINK' . $int_count . '}','./img/' . $value); 
+            $parse->set_tpl('{TUMBLINK' . $int_count . '}','./img/tumbs/' . $value); 
+            $parse->set_tpl('{ALT' . $int_count . '}', $value);            
+            
+        }
+        
+        $count++;
+    }
+    unset($value);
+    $parse->set_tpl('{IMAGECOUNT}', $int_count);
+    $parse->set_tpl('{PREVPAGE}',$page_no-1);
+    if($int_count==6){
+        $parse->set_tpl('{NEXTPAGE}',$page_no+1);
+    }else{
+        $parse->set_tpl('{NEXTPAGE}',$page_no);
+    }
+}
+
+
 function displayMainDocument($parse, $page_no){
-    //echo "Page {$page_no} requested";
-    $parse->get_tpl(TEMPLATES_DIR . '/mainpage.tpl'); //Файл который мы будем парсить
-    $parse->set_tpl('{PREVPAGE}','0');
-    $parse->set_tpl('{IMGLINK1}','./img/fox-1.jpg');
-    $parse->set_tpl('{TUMBLINK1}','./img/tumbs/fox-1.jpg');
-    $parse->set_tpl('{IMGLINK2}','./img/fox-2.jpg');
-    $parse->set_tpl('{TUMBLINK2}','./img/tumbs/fox-2.jpg');
-    $parse->set_tpl('{IMGLINK3}','./img/fox-3.jpg');
-    $parse->set_tpl('{TUMBLINK3}','./img/tumbs/fox-3.jpg');
-    $parse->set_tpl('{IMGLINK4}','./img/fox-4.jpg');
-    $parse->set_tpl('{TUMBLINK4}','./img/tumbs/fox-4.jpg');
-    $parse->set_tpl('{IMGLINK5}','./img/fox-5.jpg');
-    $parse->set_tpl('{TUMBLINK5}','./img/tumbs/fox-5.jpg');
-    $parse->set_tpl('{IMGLINK6}','./img/fox-6.jpg');
-    $parse->set_tpl('{TUMBLINK6}','./img/tumbs/fox-6.jpg');
-    $parse->set_tpl('{NEXTPAGE}','1');
+    prepareTemplate($parse, $page_no, TEMPLATES_DIR . '/mainpage.tpl');
     $parse->tpl_parse(); //Парсим
     print $parse->template; //Выводим нашу страничку
 }
 
 function displayGallerySection($parse, $page_no){
-    //echo "Page {$page_no} requested";
-    $parse->get_tpl(TEMPLATES_DIR . '/sectionGallery.tpl'); //Файл который мы будем парсить
-    $parse->set_tpl('{PREVPAGE}','1');
-    $parse->set_tpl('{IMGLINK1}','./img/fox-1.jpg');
-    $parse->set_tpl('{TUMBLINK1}','./img/tumbs/fox-1.jpg');
-    $parse->set_tpl('{IMGLINK2}','./img/fox-2.jpg');
-    $parse->set_tpl('{TUMBLINK2}','./img/tumbs/fox-2.jpg');
-    $parse->set_tpl('{IMGLINK3}','./img/fox-3.jpg');
-    $parse->set_tpl('{TUMBLINK3}','./img/tumbs/fox-3.jpg');
-    $parse->set_tpl('{IMGLINK4}','./img/fox-4.jpg');
-    $parse->set_tpl('{TUMBLINK4}','./img/tumbs/fox-4.jpg');
-    $parse->set_tpl('{IMGLINK5}','./img/fox-5.jpg');
-    $parse->set_tpl('{TUMBLINK5}','./img/tumbs/fox-5.jpg');
-    $parse->set_tpl('{IMGLINK6}','./img/fox-7.jpg');
-    $parse->set_tpl('{TUMBLINK6}','./img/tumbs/fox-7.jpg');
-    $parse->set_tpl('{NEXTPAGE}','0');
+    prepareTemplate($parse, $page_no, TEMPLATES_DIR . '/sectionGallery.tpl');
     $parse->tpl_parse(); //Парсим
     print $parse->template; //Выводим нашу страничку
 }
+
