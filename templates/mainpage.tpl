@@ -9,9 +9,9 @@
     <header>
         <div class="header">My gallery</div>
     </header>
-    <main>
+    <main id="galery_section">
         <div class="nav" id="prev" page_no="{PREVPAGE}">&lt;&lt;</div>
-        <div class="gallery" id="galery_section">
+        <div class="gallery">
             <a href="{IMGLINK1}" target="_blank"><img src="{TUMBLINK1}" alt="fox-1"></a>
             <a href="{IMGLINK2}" target="_blank"><img src="{TUMBLINK2}" alt="fox-2"></a>
             <a href="{IMGLINK3}" target="_blank"><img src="{TUMBLINK3}" alt="fox-3"></a>

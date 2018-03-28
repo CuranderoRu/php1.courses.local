@@ -21,8 +21,7 @@ function navSectionClickHandler(event){
                         let newSectionCode = xhr.responseText;
                         let galery_section = document.querySelector('#galery_section');
                         console.log(newSectionCode);
-                        galery_section.innerHTML = newSectionCode;
-                        
+                        galery_section.innerHTML = newSectionCode.toString();
                     }else{
                         console.log(xhr.status+': '+xhr.statusText['errno']);
                     }
