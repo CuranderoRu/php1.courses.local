@@ -29,6 +29,11 @@ main {
     text-align: center;
 }
 
+.nav:hover {
+    background-color: burlywood;
+}
+
+
 .gallery {
     margin: 0 auto;
     display: grid;
