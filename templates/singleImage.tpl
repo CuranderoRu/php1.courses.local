@@ -7,5 +7,9 @@
 <body>
     <img src="{PATHTOIMG}" alt="{ALT}">
     <div>Количество просмотров - {VIEWCOUNT}</div>
+    <form action="index.php?action=deleteimage" enctype="multipart/form-data" method="post">
+           <button name="image_id" value = {image_id}>Удалить</button>
+    </form>
+
 </body>
 </html>

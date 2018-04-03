@@ -20,7 +20,7 @@
     </main>
     <div>
         <form action="index.php" enctype="multipart/form-data" method="post">
-            <input type="file" name='file' accept=".jpg, .jpeg, .png">
+            <input type="file" name='photo' accept=".jpg, .jpeg, .png">
             <input type="submit">
         </form>
     </div>

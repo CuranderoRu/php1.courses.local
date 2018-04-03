@@ -1,17 +1,28 @@
 <?php
 
-function query($sql,$conn,$fetch=true){
-    $res = mysqli_query($conn, $sql);
-    if($fetch==true){
-        $return = mysqli_fetch_all($res, MYSQLI_ASSOC);
-    }else{
-        if($res == false){
-            var_dump($sql);
-        }
-        $return = $res;
+function get_connection(){
+    static $conn;
+    if($conn==null){
+        $conn = mysqli_connect(MYSQL_ADDRESS, MYSQL_LOGIN, MYSQL_PSW, MYSQL_DBNAME);
     }
-    
-    return $return;
+    return $conn;
 }
+
+function checkParam($param){
+    return mysqli_real_escape_string(get_connection(), $param);
+}
+
+function executeSQL($stmt){
+    //echo $stmt . '<br>';
+    return mysqli_query(get_connection(), $stmt);
+}
+
+function selectAll($sql){
+    $res = executeSQL($sql);
+    //echo $sql;
+    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+}
+
+
 
 ?>
