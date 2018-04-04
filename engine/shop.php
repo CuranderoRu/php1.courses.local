@@ -11,6 +11,7 @@ function getCategoryList($parse){
         $parse->tpl_parse();
         $return = $return . $parse->template;
     }
+    unset($value);
     return $return;
 }
 
@@ -32,6 +33,7 @@ function getItemsList($parse, $category=null){
         $parse->tpl_parse();
         $return = $return . $parse->template;
     }
+    unset($value);
     return $return;
 }
 
@@ -47,8 +49,26 @@ function displayShop($parse, $category = null){
     print $parse->template;
 }
 
+function extractComments($parse, $itemid){
+    $return = "";
+    $res = selectAll("SELECT name, comment_date, comment FROM comments WHERE item = {$itemid}");
+    foreach ($res as &$value) {
+        $parse->get_tpl(TEMPLATES_DIR . "/commentsection.tpl");
+        $parse->set_tpl('{AUTHOR}',$value['name']); 
+        $parse->set_tpl('{COMMDATE}',$value['comment_date']); 
+        $parse->set_tpl('{COMMENT}',$value['comment']); 
+        $parse->tpl_parse();
+        $return = $return . $parse->template;
+
+    }
+    unset($value);
+    
+    return $return;
+}
+
 function displayItem($parse, $itemid){
     $itemid = checkParam($itemid);
+    $comments = extractComments($parse, $itemid);
     $res = selectAll("SELECT * FROM items WHERE id = {$itemid}");
     $parse->get_tpl(TEMPLATES_DIR . "/itempage.tpl");
     foreach ($res as &$value) {
@@ -57,7 +77,9 @@ function displayItem($parse, $itemid){
         $parse->set_tpl('{item_descr}',$value['name']); 
         $parse->set_tpl('{item_comment}',$value['comment']); 
         $parse->set_tpl('{item_price}',$value['price']); 
+        $parse->set_tpl('{COMMENTS}',$comments); 
     }
+    unset($value);
     $parse->tpl_parse();
     print $parse->template;
 }
