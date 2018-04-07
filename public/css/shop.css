@@ -13,7 +13,7 @@ body {
     line-height: 80px;
 }
 
-.header a{
+.header a {
     text-decoration: none;
 }
 
@@ -22,7 +22,7 @@ body {
     display: flex;
     list-style: none;
     justify-content: space-around;
-    
+
 }
 
 .container {
@@ -59,12 +59,13 @@ body {
     display: flex;
 }
 
-.item_top img{
+.item_top img {
     height: 100px;
     position: relative;
     top: 1px;
-    left: 10px; 
+    left: 10px;
 }
+
 .item_desr {
     position: relative;
     font-size: 10px;
@@ -74,14 +75,14 @@ body {
     padding-top: 10px;
     overflow: hidden;
     top: 1px;
-    left: 15px; 
+    left: 15px;
     line-height: 15px;
     color: blue;
 }
 
 .item_desr:hover {
     text-decoration: underline;
-    text-decoration-color:blueviolet;
+    text-decoration-color: blueviolet;
 }
 
 .item_comment {
@@ -92,7 +93,7 @@ body {
     color: black;
 }
 
-.item_price{
+.item_price {
     line-height: 20px;
     font-size: 15px;
     font-weight: 700;
@@ -107,37 +108,70 @@ body {
     font-size: 13px;
 }
 
-.item_form input{
+.item_form input {
     width: 40px;
     margin-left: 3px;
 }
 
-.item_form button{
+.item_form button {
     margin-left: 3px;
 }
 
-.item_capture{
+.item_capture {
     font-size: 18px;
     font-weight: 700;
     margin: 10px;
 }
 
-.comments{
+.comments {
     margin-top: 20px;
     border-top: 2px solid #615555;
 }
 
-.comment_section{
+.comment_section {
     margin-top: 20px;
     width: 800px;
     border-top: 2px solid #615555;
 }
 
-.comment_author{
+.comment_author {
     font-weight: 600;
 }
 
-.comment_content{
+.comment_content {
     margin-top: 10px;
     font-style: italic;
+}
+
+.cart_button:hover .cart_menu {
+    display: block;
+}
+
+.cart_menu {
+    position: absolute;
+    cursor: pointer;
+    z-index: 99;
+    display: none;
+    background-color: white;
+}
+
+.cart_menu ul{
+    list-style: none;
+    padding: 0;
+}
+
+.cart_menu__item:hover a{
+    color: chartreuse;
+}
+
+.cart_menu__item a{
+    text-decoration: none;
+}
+
+.invisible {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
 }

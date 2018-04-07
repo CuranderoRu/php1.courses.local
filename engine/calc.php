@@ -1,6 +1,7 @@
 <?php
 
-function displayCalc($parse){
+function displayCalc(){
+    $parse = new parse_class;
     $parse->get_tpl(TEMPLATES_DIR . "/calc.tpl");
     $parse->set_tpl('{OP1}',0); 
     $parse->set_tpl('{OP2}', 0);
@@ -51,7 +52,8 @@ function defineSelected($a){
     return $res;
 }
 
-function evalCalcForm($parse){
+function evalCalcForm(){
+    $parse = new parse_class;
     $op1 = (float) str_replace ( ',' , '.' , $_POST['operand1']);
     $op2 = (float) str_replace ( ',' , '.' , $_POST['operand2']);
     $a = $_POST['operator'];

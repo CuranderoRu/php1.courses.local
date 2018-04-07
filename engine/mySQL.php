@@ -19,10 +19,20 @@ function executeSQL($stmt){
 
 function selectAll($sql){
     $res = executeSQL($sql);
-    //echo $sql;
-    return mysqli_fetch_all($res, MYSQLI_ASSOC);
+    //var_dump($res);
+    if(count($res)>0){
+        return mysqli_fetch_all($res, MYSQLI_ASSOC);
+    }else{
+        return [];
+    }
+    
 }
 
+function selectOne($sql){
+    //echo $sql;
+    $res = executeSQL($sql);
+    return mysqli_fetch_array($res, MYSQLI_ASSOC);
+}
 
 
 ?>

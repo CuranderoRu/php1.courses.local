@@ -43,13 +43,15 @@ function prepareTemplate($parse, $page_no, $templ_path){
 }
 
 
-function displayMainDocument($parse, $page_no){
+function displayMainDocument($page_no){
+    $parse = new parse_class;
     prepareTemplate($parse, $page_no, TEMPLATES_DIR . '/galeryPage.tpl');
     $parse->tpl_parse(); //Парсим
     print $parse->template; //Выводим нашу страничку
 }
 
-function displayGallerySection($parse, $page_no){
+function displayGallerySection($page_no){
+    $parse = new parse_class;
     prepareTemplate($parse, $page_no, TEMPLATES_DIR . '/sectionGallery.tpl');
     $parse->tpl_parse(); //Парсим
     print $parse->template; //Выводим нашу страничку

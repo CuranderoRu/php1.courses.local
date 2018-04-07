@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Megashop</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -13,7 +14,11 @@
             <li><a href="index.php">Главная</a></li>
             <li><a href="?action=viewsection&section_type=gallery">Галерея</a></li>
             <li><a href="?action=viewsection&section_type=calc">Калькулятор</a></li>
-            <li><a href="?action=viewsection&section_type=cart">Корзина (0)</a></li>
+            <li class="cart_button"><a href="?action=viewsection&section_type=cart">Корзина (0)</a>
+                <div class="cart_menu" id="cart_menu">
+                   {cart_menu_items}
+                </div>
+            </li>
             <li><a href="?action=viewsection&section_type=admin">Админка</a></li>
         </ul>
     </nav>
@@ -26,4 +31,5 @@
         </div>
     </div>
 </body>
+
 </html>
