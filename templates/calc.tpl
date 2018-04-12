@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form action="?action=calculate" method="post">
+    <form action="../calc/index.php?action=calculate" method="post">
         <fieldset>
             <legend>Калькулятор</legend>
             <p><label for="operand1">Операнд 1</label>

@@ -1,6 +1,6 @@
 'use strict';
 
-let SERVER_ADDR = 'http://php1.courses.local/index.php';
+let SERVER_ADDR = 'http://php1.courses.local/';
 let _200_OK = 200;
 
 function buildGallery(responseText) {
@@ -42,7 +42,7 @@ function buildGallery(responseText) {
 
 function requestPageByNo(navpage) {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', SERVER_ADDR + '?action=viewgalerysection&page_no=' + navpage, true);
+    xhr.open('GET', SERVER_ADDR + 'gallery/galleryAPI.php?page_no=' + navpage, true);
     xhr.timeout = 15000;
     xhr.ontimeout = function () {
         console.log('Время ожидания истекло');

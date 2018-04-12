@@ -83,18 +83,18 @@ function getCartMenuItems(){
     $return = "";
     if(isAuthenticated()){
         $return = $return . renderTemplate('cartmenuitem', array(
-        'itemlink' => '?action=logoff',
+        'itemlink' => '../shop/logoff.php',
         'itemtext' => 'Log off'
         )
         );
     }else{
         $return = $return . renderTemplate('cartmenuitem', array(
-        'itemlink' => '?action=login',
+        'itemlink' => '../shop/login.php',
         'itemtext' => 'Sign in'
         )
         );
         $return = $return . renderTemplate('cartmenuitem', array(
-        'itemlink' => '?action=register',
+        'itemlink' => 'register.php',
         'itemtext' => 'Sign up'
         )
         );

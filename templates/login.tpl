@@ -9,7 +9,7 @@
 <body>
     <p><?=$message?></p>
     <h1>Пожалуйста, войдите в магазин:</h1>
-    <form action="?action=processlogin" method="post">
+    <form action="/shop/login.php" method="post">
         <p><b>Логин:</b><br>
             <input type="text" name="login" size="25">
         </p>

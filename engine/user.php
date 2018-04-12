@@ -30,8 +30,9 @@ function checkUser($login, $password){
 
 function closeSession(){
     session_start();
-    $_SESSION['authorized']=false;
-    $_SESSION['cart_list'] = [];
+    //$_SESSION['authorized']=false;
+    //$_SESSION['cart_list'] = [];
+    session_destroy();
 }
 
 ?>

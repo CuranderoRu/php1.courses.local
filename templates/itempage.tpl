@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <title>Megashop</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/shop.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/shop.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     <div class="container">
         <div>
             <div class="item_capture">{item_descr}</div>
-            <img src="/img/{item_img}" alt="{item_img}">
+            <img src="../img/{item_img}" alt="{item_img}">
             <div>{item_comment}</div>
             <div class="item_price">Цена: {item_price}</div>
             <div class="comments">

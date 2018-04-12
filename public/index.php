@@ -1,8 +1,17 @@
 <?php
 header('Content-Type: text/html;charset=utf-8');
-header("Cache-Control: no-store, no-cache, must-revalidate");
-header("Expires: " . date("r"));
 include_once $_SERVER['DOCUMENT_ROOT'] . "/../config/main.php";
-require_once ENGINE_DIR . "/handler.php";
 
-?>
+if(!$path = preg_replace(["#^/#", "#[?].*#"],"",$_SERVER['REQUEST_URI'])){
+    $path = "shop/index.php";
+}
+
+$pageName =  PAGES_DIR . "/" .  $path;
+
+if(file_exists(($pageName))){
+    include $pageName;
+}else{
+    include PAGES_DIR . "/shop/index.php";
+}
+    
+    

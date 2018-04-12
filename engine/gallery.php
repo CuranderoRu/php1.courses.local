@@ -23,9 +23,8 @@ function prepareTemplate($parse, $page_no, $templ_path){
     foreach ($arFileList as &$value) {
         if($start_img<=$count && ($start_img+$max_pics)>$count){
             $int_count++;
-            //$parse->set_tpl('{IMGLINK' . $int_count . '}','./img/' . $value); 
-            $parse->set_tpl('{IMGLINK' . $int_count . '}','index.php?image_id=' . $value['image_id']); 
-            $parse->set_tpl('{TUMBLINK' . $int_count . '}','./img/tumbs/' . $value['file_name']); 
+            $parse->set_tpl('{IMGLINK' . $int_count . '}','singlePicturePage.php?image_id=' . $value['image_id']); 
+            $parse->set_tpl('{TUMBLINK' . $int_count . '}','../img/tumbs/' . $value['file_name']); 
             $parse->set_tpl('{ALT' . $int_count . '}', $value['requests_count']);
             $parse->set_tpl('{IMAGEID' . $int_count . '}', $value['image_id']);
         }
@@ -63,7 +62,7 @@ function returnSinglePictureDocByID($image_id, $parse){
     $res = selectAll("SELECT file_name, requests_count FROM images WHERE image_id={$image_id}");
     $parse->get_tpl(TEMPLATES_DIR . "/singleImage.tpl");
     $parse->set_tpl('{PICNAME}', $res[0]["file_name"]); 
-    $parse->set_tpl('{PATHTOIMG}', "./img/" . $res[0]["file_name"]); 
+    $parse->set_tpl('{PATHTOIMG}', "../img/" . $res[0]["file_name"]); 
     $parse->set_tpl('{ALT}', $res[0]["file_name"]); 
     $parse->set_tpl('{VIEWCOUNT}', $res[0]["requests_count"]);
     $parse->set_tpl('{image_id}', $image_id);

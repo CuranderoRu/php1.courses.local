@@ -3,8 +3,8 @@
 
 <head>
     <title>My gallery</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
             <input type="submit">
         </form>
     </div>
-    <script src="./js/interface.js"></script>
+    <script src="../js/interface.js"></script>
 </body>
 
 </html>
